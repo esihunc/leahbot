@@ -28,12 +28,17 @@ class chatbot(discord.Client):
         if message.content.startswith("!아레나"):
             msg = message.content.split(" ")
             channel = message.channel
+            
             options = webdriver.ChromeOptions()
-            options.add_argument('headless')
-            options.add_argument('lang=ko_KR')
-            chromedriver_path = "/app/.chromedriver/bin/chromedriver"
-            driver = webdriver.Chrome(os.path.join(os.getcwd(),chromedriver_path),options=options)
+            options.add_argument("--headless")
+            options.add_argument("--disable-dev-shm-usage")
+            options.add_argument("--no-sandbox")
+            
+            chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+            driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+            
             driver.get("http://bf.nexon.com/Rank/FastStart/List")
+            
             usr = msg[1]
             elem = driver.find_element_by_id("searchName")
             elem.send_keys(usr)
