@@ -103,4 +103,5 @@ class chatbot(discord.Client):
 
 if __name__ == "__main__":
     client = chatbot()
-    client.run("Nzk3NDkwODk4NzE4OTQ5NDE2.X_nPRg.wQFkMHKQdp5e4YdSXnsuVyuXBcE")
+    access_token = os.environ["BOT_TOKEN"]
+    client.run(access_token)
