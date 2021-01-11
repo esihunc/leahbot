@@ -29,7 +29,7 @@ class chatbot(discord.Client):
         options = webdriver.ChromeOptions()
         options.add_argument('headless')
         options.add_argument('lang=ko_KR')
-        chromedriver_path = "chromedriver"
+        chromedriver_path = "/app/.chromedriver/bin/chromedriver"
         driver = webdriver.Chrome(os.path.join(os.getcwd(),chromedriver_path),options=options)
         driver.get('http://bf.nexon.com/News/Update')
         html = driver.page_source
@@ -80,7 +80,7 @@ class chatbot(discord.Client):
             options = webdriver.ChromeOptions()
             options.add_argument('headless')
             options.add_argument('lang=ko_KR')
-            chromedriver_path = "chromedriver"
+            chromedriver_path = "/app/.chromedriver/bin/chromedriver"
             driver = webdriver.Chrome(os.path.join(os.getcwd(),chromedriver_path),options=options)
             driver.get("http://bf.nexon.com/Rank/FastStart/List")
             usr = msg[1]
