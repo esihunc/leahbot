@@ -34,7 +34,7 @@ class chatbot(discord.Client):
             options.add_argument("--disable-dev-shm-usage")
             options.add_argument("--no-sandbox")
             
-            chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+            options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
             driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
             
             driver.get("http://bf.nexon.com/Rank/FastStart/List")
